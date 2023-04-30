@@ -17,6 +17,20 @@ app.get('/node-hello-world', (req, res) => {
   res.send(respond)
 });
 
+app.get('/node-hello-json', (req, res) => {
+
+  const ipAddress = req.ip;
+  const today = new Date().toISOString().slice(0, 10);
+
+  const data = {
+    message: 'Hello World from PHP!',
+    date: `Today's date is ${today}`,
+    ipAddress: ipAddress,
+  };
+
+  res.json("<div>"+JSON.stringify(data)+"</div>");
+});
+
 app.listen(3000, () => {
   console.log('Example app listening at http://localhost:3000')
 });
