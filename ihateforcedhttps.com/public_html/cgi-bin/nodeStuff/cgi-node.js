@@ -1,11 +1,11 @@
 const express = require('express');
-const ip = require('ip');
+// const ip = require('ip');
 const app = express();
 
 app.get('/node-hello-world', (req, res) => {
 
   const currentDate = JSON.stringify(new Date().toISOString().split('T')[0])
-  const currentIP = JSON.stringify(ip.address())
+  const currentIP = JSON.stringify(req.ip)
 
 
   let respond = "<h1>Hello Node World</h1>"
