@@ -10,7 +10,7 @@
     <h2>Environment Variables:</h2>
         <ul>
             <?php
-                foreach ($_ENV as $key => $value) {
+                foreach ($_REQUEST as $key => $value) {
                     echo "<li>$key: $value</li>";
                 }
             ?>
