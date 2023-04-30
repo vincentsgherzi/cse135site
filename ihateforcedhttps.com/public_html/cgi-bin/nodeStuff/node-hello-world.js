@@ -2,7 +2,7 @@ const express = require('express');
 const ip = require('ip');
 const app = express();
 
-app.get('/node-hello-world', (req, res) => {
+app.get('/', (req, res) => {
 
   const currentDate = new Date().toISOString().split('T')[0];
   const currentIP = ip.address()
