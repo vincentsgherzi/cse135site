@@ -10,7 +10,7 @@
     <h2>Environment Variables:</h2>
         <ul>
             <?php
-                foreach ($_REQUEST as $key => $value) {
+                foreach (getallheaders() as $key => $value) {
                     echo "<li>$key: $value</li>";
                 }
             ?>
