@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_session'])) {
+    session_unset();
+    session_destroy();
+    header('Location: ' . $_SERVER['PHP_SELF']); 
+    exit;
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,14 +16,12 @@
 <body>
     <h1 align="center">Session Test page 2</h1>
   
-    <form>
-        <label for="name-input">What is your name?</label>
-        <input type="text" id="name-input" name="name">
-        <button type="submit">Submit</button>
-    </form>
+    <div>your given name is <?php echo isset($_SESSION['name'])?></div>
 
     <li><a href="index.html">Return to Home</a></li>
-    <button>delete session</button>
-    
+    <form action="" method="POST">
+        <input type="hidden" name="delete_session" value="1">
+        <button type="submit">Delete session</button>
+    </form>
 </body>
 </html>
