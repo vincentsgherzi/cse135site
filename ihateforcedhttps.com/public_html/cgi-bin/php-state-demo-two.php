@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_session'])) {
   
     <div>your given name is <?php echo isset($_SESSION['name'])?></div>
 
-    <li><a href="index.html">Return to Home</a></li>
+    <li><a href="../index.html">Return to Home</a></li>
     <form action="" method="POST">
         <input type="hidden" name="delete_session" value="1">
         <button type="submit">Delete session</button>
