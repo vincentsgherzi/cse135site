@@ -17,12 +17,7 @@
         "ipAddress" => $ip_address
     );
 
-    // Create a div and concatenate the key-value pairs inside it
-    echo '<div>';
-    foreach($response as $key => $value) {
-        echo "<p>$key: $value</p>";
-    }
-    echo '</div>';
+    echo json_encode($response)
     ?>
 </body>
 </html>
