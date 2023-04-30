@@ -7,7 +7,7 @@
 <body>
     <h1 align="center">Environment Variables</h1>
     
-    <h2>Environment Variables:</h2>
+    <h2>HTTP request headers:</h2>
         <ul>
             <?php
                 foreach (getallheaders() as $key => $value) {
