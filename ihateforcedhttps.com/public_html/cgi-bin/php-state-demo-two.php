@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['delete_session'])) {
 <body>
     <h1 align="center">Session Test page 2</h1>
   
-    <div>your given name is <?php echo isset($_SESSION['name'])?></div>
+    <div>your given name is <?php echo isset($_SESSION['name']) ? $_SESSION['name'] : ''; ?></div>
 
     <li><a href="../index.html">Return to Home</a></li>
     <form action="" method="POST">
