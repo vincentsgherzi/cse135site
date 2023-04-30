@@ -1,10 +1,9 @@
 <?php
 
     header('Content-Type: application/json');
-    echo json_encode($response);
 
     $message = "Hello World from PHP!";
-    
+
     $date = date("Y-m-d");
     $ip_address = $_SERVER['REMOTE_ADDR'];
     
@@ -14,5 +13,5 @@
         "ipAddress" => $ip_address
     );
     
-    
+    echo json_encode($response);
 ?>
