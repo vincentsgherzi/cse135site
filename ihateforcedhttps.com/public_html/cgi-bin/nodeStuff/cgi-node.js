@@ -5,7 +5,7 @@ const app = express();
 app.get('/node-hello-world', (req, res) => {
 
   const currentDate = JSON.stringify(new Date().toISOString().split('T')[0])
-  const currentIP = JSON.stringify(req.ip)
+  const currentIP = JSON.stringify(req.headers['x-forwarded-for'])
 
 
   let respond = "<h1>Hello Node World</h1>"
@@ -19,8 +19,8 @@ app.get('/node-hello-world', (req, res) => {
 
 app.get('/node-hello-json', (req, res) => {
 
-  const ipAddress = req.ip;
-  const today = new Date().toISOString().slice(0, 10);
+  const ipAddress = req.headers['x-forwarded-for']
+  const today = new Date().toISOString().slice(0, 10)
 
   const data = {
     message: 'Hello World from PHP!',
@@ -29,7 +29,7 @@ app.get('/node-hello-json', (req, res) => {
   };
 
 
-  res.send("<div>"+JSON.stringify(data)+"</div>");
+  res.send("<div>"+JSON.stringify(data)+"</div>")
 });
 
 app.listen(3000, () => {
