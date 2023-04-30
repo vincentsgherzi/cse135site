@@ -18,4 +18,5 @@ app.get('/node-hello-world.js', (req, res) => {
 
 app.listen(3000, () => {
   console.log('Example app listening at http://localhost:3000');
+  console.log('PLEASER WORK FOR THE LOVE OF GOD')
 });
