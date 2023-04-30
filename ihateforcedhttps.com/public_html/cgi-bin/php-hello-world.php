@@ -3,7 +3,10 @@
 <head>
 	<title>Hello, PHP</title>
 </head>
+
 <body>
+    <h1 align="center">Hello PHP World</h1>
+    
 	<?php
 		echo "<p>Hello World</p>";
 		echo "<p>This page was generated with the PHP programming language</p>";
