@@ -28,7 +28,8 @@ app.get('/node-hello-json', (req, res) => {
     ipAddress: ipAddress,
   };
 
-  res.json("<div>"+JSON.stringify(data)+"</div>");
+
+  res.send("<div>"+JSON.stringify(data)+"</div>");
 });
 
 app.listen(3000, () => {
