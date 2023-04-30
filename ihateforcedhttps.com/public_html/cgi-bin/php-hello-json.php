@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,8 +5,6 @@
 </head>
 
 <body>
-   
-    
     <?php
     $message = "Hello World from PHP!";
 
@@ -20,7 +17,12 @@
         "ipAddress" => $ip_address
     );
 
-    echo $response;
+    // Create a div and concatenate the key-value pairs inside it
+    echo '<div>';
+    foreach($response as $key => $value) {
+        echo "<p>$key: $value</p>";
+    }
+    echo '</div>';
     ?>
 </body>
 </html>
