@@ -34,7 +34,7 @@ int main(int argc, char **argv, char **envp)
   printf("<br /><br />");
 
   // Destroy Cookie button
-  printf("<form action=\"/cgi-bin/c-destroy-session.cgi\" method=\"get\">");
+  printf("<form action=\"/cgi-bin/c-destroy-sessions.cgi\" method=\"get\">");
   printf("<button type=\"submit\">Destroy Session</button>");
   printf("</form>");
 
