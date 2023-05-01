@@ -50,11 +50,29 @@ app.get('/node-get-echo', (req, res) => {
   if (queryKeys.length > 0) {
     queryString = `Query String: ${req.url.slice(req.url.indexOf('?') + 1)}`;
   } else {
-    queryString = '';
+    queryString = 'Query String:';
   }
 
   res.send(`
     <h1 align="center">GET Request Echo</h1>
+    ${queryString ? `<p>${queryString}</p>` : ''}
+    ${queryKeys.map((key) => `<p>${key}: ${query[key]}</p>`).join('')}
+  `);
+});
+
+app.post('/node-get-post', (req, res) => {
+  const query = req.body;
+  const queryKeys = Object.keys(query);
+  let queryString = '';
+
+  if (queryKeys.length > 0) {
+    queryString = `Query String: ${Object.keys(query).map((key) => `${key}=${query[key]}`).join('&')}`;
+  } else {
+    queryString = 'Query String:';
+  }
+
+  res.send(`
+    <h1 align="center">POST Request Echo</h1>
     ${queryString ? `<p>${queryString}</p>` : ''}
     ${queryKeys.map((key) => `<p>${key}: ${query[key]}</p>`).join('')}
   `);
