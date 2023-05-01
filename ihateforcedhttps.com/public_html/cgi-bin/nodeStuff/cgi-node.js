@@ -32,6 +32,16 @@ app.get('/node-hello-json', (req, res) => {
   res.send("<div>"+JSON.stringify(data)+"</div>")
 });
 
+app.get('/node-environment', (req, res) => {
+  let respond = "<h1>Node Environment</h1>"
+  respond+="<h2>Headers</h2>"
+  respond+="<pre>" + JSON.stringify(req.headers, null, 2) + "</pre>"
+  respond+="<h2>Environment vars</h2>"
+  respond+="<pre>" + JSON.stringify(process.env, null, 2) + "</pre>"
+
+  res.send(respond)
+});
+
 app.listen(3000, () => {
-  console.log('Example app listening at http://localhost:3000')
+  console.log('running')
 });
