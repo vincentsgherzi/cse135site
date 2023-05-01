@@ -42,6 +42,17 @@ app.get('/node-environment', (req, res) => {
   res.send(respond)
 });
 
+app.get('/node-get-echo', (req, res) => {
+  const query = req.query;
+  const queryKeys = Object.keys(query);
+
+  res.send(`
+    <h1 align="center">GET Request Echo</h1>
+    <p>Query String: ${req.url.slice(req.url.indexOf('?') + 1)}</p>
+    ${queryKeys.map((key) => `<p>${key}: ${query[key]}</p>`).join('')}
+  `);
+});
+
 app.listen(3000, () => {
   console.log('running')
 });
