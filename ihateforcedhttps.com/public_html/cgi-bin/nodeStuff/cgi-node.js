@@ -148,8 +148,8 @@ app.get('/node-state-demo-two', (req, res) => {
       
         <div>Your given name is ${req.session.name || ''}</div>
 
-        <li><a href="/node-state-demo">Return to page 1</a></li>
-        <form action="/node-state-demo-two" method="POST">
+        <li><a href="/node-state-demo">Return to Home</a></li>
+        <form action="../index.html" method="POST">
             <input type="hidden" name="delete_session" value="1">
             <button type="submit">Delete session</button>
         </form>
