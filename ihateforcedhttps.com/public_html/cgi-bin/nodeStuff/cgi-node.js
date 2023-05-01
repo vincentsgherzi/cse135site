@@ -45,10 +45,17 @@ app.get('/node-environment', (req, res) => {
 app.get('/node-get-echo', (req, res) => {
   const query = req.query;
   const queryKeys = Object.keys(query);
+  let queryString = '';
+
+  if (queryKeys.length > 0) {
+    queryString = `Query String: ${req.url.slice(req.url.indexOf('?') + 1)}`;
+  } else {
+    queryString = '';
+  }
 
   res.send(`
     <h1 align="center">GET Request Echo</h1>
-    <p>Query String: ${req.url.slice(req.url.indexOf('?') + 1)}</p>
+    ${queryString ? `<p>${queryString}</p>` : ''}
     ${queryKeys.map((key) => `<p>${key}: ${query[key]}</p>`).join('')}
   `);
 });
