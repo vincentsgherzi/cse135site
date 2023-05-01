@@ -61,22 +61,25 @@ app.get('/node-get-echo', (req, res) => {
 });
 
 app.post('/node-post-echo', (req, res) => {
-  // const query = req.body;
-  // const queryKeys = Object.keys(query);
-  // let queryString = '';
+  const query = req.body;
+  const queryKeys = Object.keys(query);
+  let queryString = '';
 
-  // if (queryKeys.length > 0) {
-  //   queryString = `Query String: ${Object.keys(query).map((key) => `${key}=${query[key]}`).join('&')}`;
-  // } else {
-  //   queryString = 'Query String:';
-  // }
+  if (queryKeys.length > 0) {
+    queryString = `Query String: ${Object.keys(query).map((key) => `${key}=${query[key]}`).join('&')}`;
+  } else {
+    queryString = 'Query String:';
+  }
 
-  // res.send(`
-  //   <h1 align="center">POST Request Echo</h1>
-  //   ${queryString ? `<p>${queryString}</p>` : ''}
-  //   ${queryKeys.map((key) => `<p>${key}: ${query[key]}</p>`).join('')}
-  // `);
-  res.send("<div>hi</div>")
+  res.send(`
+    <h1 align="center">POST Request Echo</h1>
+    ${queryString ? `<p>${queryString}</p>` : ''}
+    ${queryKeys.map((key) => `<p>${key}: ${query[key]}</p>`).join('')}
+  `);
+});
+
+app.get('/node-post-echo', (req, res) => {
+  res.send('<h1 align="center">POST Request Echo</h1>')
 });
 
 app.listen(3000, () => {
