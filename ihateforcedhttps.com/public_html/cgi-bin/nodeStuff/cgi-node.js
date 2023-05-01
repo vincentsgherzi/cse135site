@@ -42,9 +42,9 @@ app.get('/node-hello-json', (req, res) => {
     ipAddress: ipAddress,
   };
 
-
-  res.send("<div>"+JSON.stringify(data)+"</div>")
+  res.json(data);
 });
+
 
 app.get('/node-environment', (req, res) => {
   let respond = "<h1>Node Environment</h1>"
