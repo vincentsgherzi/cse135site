@@ -60,7 +60,7 @@ app.get('/node-get-echo', (req, res) => {
   `);
 });
 
-app.post('/node-get-post', (req, res) => {
+app.post('/node-post-echo', (req, res) => {
   const query = req.body;
   const queryKeys = Object.keys(query);
   let queryString = '';
