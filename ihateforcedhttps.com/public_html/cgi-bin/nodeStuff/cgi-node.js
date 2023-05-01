@@ -95,6 +95,69 @@ app.all('/node-general-echo', (req, res) => {
   res.send(returnString);
 });
 
+app.get('/node-state-demo', (req, res) => {
+  const name = req.session.name ? req.session.name : '';
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Session Test</title>
+    </head>
+    <body>
+      <h1 align="center">Session Test</h1>
+
+      <form action="/node-state-demo" method="POST">
+        <label for="name-input">What is your name?</label>
+        <input type="text" id="name-input" name="name">
+        <button type="submit">Submit</button>
+      </form>
+
+      ${name ? `<p>Hello, ${name}!</p>` : ''}
+
+      <li><a href="/node-state-demo-two">Link to page 2</a></li>
+
+    </body>
+    </html>
+  `);
+});
+
+app.post('/node-state-demo', (req, res) => {
+  if (req.body.name) {
+    req.session.name = req.body.name;
+  }
+  res.redirect('/node-state-demo');
+});
+
+app.get('/node-state-demo-two', (req, res) => {
+  const name = req.session.name ? req.session.name : '';
+  res.send(`
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <title>Session Test</title>
+    </head>
+    <body>
+      <h1 align="center">Session Test page 2</h1>
+
+      <div>Your given name is ${name}</div>
+
+      <li><a href="/node-state-demo">Return to Home</a></li>
+      <form action="/node-state-demo-two" method="POST">
+        <input type="hidden" name="delete_session" value="1">
+        <button type="submit">Delete session</button>
+      </form>
+    </body>
+    </html>
+  `);
+});
+
+app.post('/node-state-demo-two', (req, res) => {
+  if (req.body.delete_session) {
+    req.session.destroy();
+  }
+  res.redirect('/node-state-demo-two');
+});
+
 
 app.listen(3000, () => {
   console.log('running')
