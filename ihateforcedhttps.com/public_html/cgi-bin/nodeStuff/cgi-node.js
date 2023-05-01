@@ -1,6 +1,10 @@
 const express = require('express');
 // const ip = require('ip');
 const app = express();
+const bodyParser = require('body-parser');
+
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get('/node-hello-world', (req, res) => {
 
@@ -79,7 +83,7 @@ app.post('/node-post-echo', (req, res) => {
 });
 
 app.get('/node-post-echo', (req, res) => {
-  res.send('<h1 align="center">POST Request Echo</h1>')
+  res.send('<h1 align="center">POST Request Echo</h1><div>get request detected, please send a post</div>')
 });
 
 app.listen(3000, () => {
