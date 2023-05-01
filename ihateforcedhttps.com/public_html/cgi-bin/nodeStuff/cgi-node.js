@@ -86,12 +86,15 @@ app.get('/node-post-echo', (req, res) => {
   res.send('<h1 align="center">POST Request Echo</h1><div>get request detected, please send a post</div>')
 });
 
-app.all('/node-general-echo', (req, res) => {
-  
-  let returnString = '<h1 align="center">Node General Echo</h1>'
-  returnString+='<p>'+ `Received ${req.method} request with payload: ${JSON.stringify(req.body)}` +'</p>'
+app.all('/general-request-echo', (req, res) => {
+  let returnString = '<h1 align="center">General Request Echo</h1>';
+  returnString += '<p>Request Method: ' + req.method + '</p>';
+  returnString += '<p>Protocol: ' + req.protocol + '</p>';
+  returnString += '<p>Query: ' + JSON.stringify(req.query) + '</p>';
+  returnString += '<p>Message Body: ' + JSON.stringify(req.body) + '</p>';
   res.send(returnString);
 });
+
 
 app.listen(3000, () => {
   console.log('running')
