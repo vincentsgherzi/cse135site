@@ -86,7 +86,7 @@ app.get('/node-post-echo', (req, res) => {
   res.send('<h1 align="center">POST Request Echo</h1><div>get request detected, please send a post</div>')
 });
 
-app.all('/general-request-echo', (req, res) => {
+app.all('/node-general-echo', (req, res) => {
   let returnString = '<h1 align="center">General Request Echo</h1>';
   returnString += '<p>Request Method: ' + req.method + '</p>';
   returnString += '<p>Protocol: ' + req.protocol + '</p>';
